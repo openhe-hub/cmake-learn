@@ -3,11 +3,16 @@ project(cmake_learn)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_subdirectory(src bin)
+set(SRC_LIST src/main.cpp)
 
-install(FILES LICENSE README.md DESTINATION share/doc/cmake/)
-install(PROGRAMS run.sh DESTINATION bin)
-install(DIRECTORY doc/ DESTINATION share/doc/cmake)
+add_subdirectory(lib)
+
+add_executable(${PROJECT_NAME} ${SRC_LIST})
+
+target_link_libraries(${PROJECT_NAME} PUBLIC hello)
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/lib)
+
+
 
 
 

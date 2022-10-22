@@ -1,6 +1,7 @@
 #include <iostream>
+#include "hello.h"
 
 int main() {
-    std::cout << "Hello CMAKE!" << std::endl;
+    print_hello();
     return 0;
 }
